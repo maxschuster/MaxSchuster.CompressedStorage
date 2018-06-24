@@ -1,0 +1,19 @@
+{
+    "description": "",
+    "type": "neos-package",
+    "name": "maxschuster/compressed-storage",
+    "license": "MIT",
+    "require": {
+        "neos/flow": ">=4.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MaxSchuster\\CompressedStorage\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "MaxSchuster.CompressedStorage"
+        }
+    }
+}

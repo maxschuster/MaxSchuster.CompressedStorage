@@ -1,0 +1,31 @@
+MaxSchuster:
+  CompressedStorage: []
+Neos:
+  Flow:
+    http:
+      chain:
+        process:
+          chain:
+            gztarget:
+              position: 'before routing'
+              component: 'MaxSchuster\CompressedStorage\Html\Component\CompressedTargetComponent'
+              componentOptions:
+                uriPrefix: 'resource/compressed'
+    resource:
+      storages:
+        compressedPersistentResourcesStorage:
+          storage: 'MaxSchuster\CompressedStorage\ResourceManagement\Storage\CompressedStorage'
+          storageOptions:
+            path: '%FLOW_PATH_DATA%Persistent/Compressed/'
+      targets:
+        compressedPersistentResourcesTarget:
+          target: '\MaxSchuster\CompressedStorage\ResourceManagement\Target\CompressedTarget'
+          targetOptions:
+            uriPrefix: 'resource/compressed'
+      collections:
+        compressed:
+          storage: 'compressedPersistentResourcesStorage'
+          target: 'compressedPersistentResourcesTarget'
+    mvc:
+      routes:
+        'MaxSchuster.CompressedStorage': true
